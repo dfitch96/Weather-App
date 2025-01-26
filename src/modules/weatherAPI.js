@@ -17,9 +17,34 @@ export async function fetchWeather(location){
             return response.json();
             
         })
-        .then(response => console.log(response))
+        .then(response => {
+            return response;
+        })
         .catch(err => {
             console.log(err);
         })
+
+}
+
+
+
+export async function asyncFetchWeather(location){
+
+    try{
+        const response = await fetch(`${URL}/${location}?key=${KEY}`, {mode: 'cors'});
+      
+        if(!response.ok){
+            console.log(`Request failed with status: ${response.status} (${response.statusText})`)
+            throw new Error(`Failed to fetch weather data`);
+        }
+
+        const responseJSON = await response.json();
+        
+        return responseJSON;
+    } catch(err){
+        return err;
+    }
+   
+
 
 }
