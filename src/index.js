@@ -11,11 +11,11 @@ function process(response){
 }
 
 
-const weather = (async () => {
-    const response = await asyncFetchWeather('Buffalo');
-    const weatherObj = process(response);
-    console.log(weatherObj);
-})();
+// const weather = (async () => {
+//     const response = await asyncFetchWeather('Buffalo');
+//     const weatherObj = process(response);
+//     console.log(weatherObj);
+// })();
 
 
 

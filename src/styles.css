@@ -1,4 +1,54 @@
-
-*{
-    background-color: rebeccapurple;
+* {
+    box-sizing: border-box;
+    margin: 0;
 }
+
+/**/
+
+
+/* HEADER CONTAINER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(77, 77, 243);
+    height: 100px;
+    width: 100%;
+    padding: 0 20px; /* Adds some padding to the left and right */
+}
+
+/* HEADER CONTAINERS */
+header > h1,
+header > div#container-button
+{
+    width: 20%;
+}
+
+header > form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+header > div#container-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* HEADER ELEMENTS */
+div#container-button > #toggle-unit{
+    height: 2rem;
+    width: 2rem;
+}
+
+header input#input-search {
+    border-radius: 10px;
+    width: 50%;
+    height: 2rem;
+    padding: 5px;
+}
+
+
+
