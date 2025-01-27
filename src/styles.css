@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    font-family: "Roboto", serif;
 }
 
 /**/
@@ -11,7 +12,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(77, 77, 243);
+    background-color: rgb(54, 54, 231);
     height: 100px;
     width: 100%;
     padding: 0 20px; /* Adds some padding to the left and right */
@@ -22,6 +23,11 @@ header > h1,
 header > div#container-button
 {
     width: 20%;
+}
+
+header > h1{
+    font-weight: lighter;
+    color: white;
 }
 
 header > form{
