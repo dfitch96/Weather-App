@@ -39,7 +39,6 @@ export async function asyncFetchWeather(location){
         }
 
         const responseJSON = await response.json();
-        
         return responseJSON;
     } catch(err){
         return err;

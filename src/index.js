@@ -4,18 +4,34 @@ import {fetchWeather, asyncFetchWeather} from './modules/weatherAPI.js';
 import {Weather} from './modules/weather.js';
 
 
+const form = document.querySelector("header > form");
+const search = form.querySelector("input#input-search");
+
+
+document.addEventListener("keydown", (event) => {
+    if(event.key === 'Enter'){
+        
+        if(!form.checkValidity()){
+            form.reportValidity();
+        } else{
+            getWeather(search.value);
+            form.reset();
+        }
+        event.preventDefault();
+    }
+})
 
 
 function process(response){
-    return new Weather(response.address, response.alerts, response.currentConditions, response.days, response.description);
+    return new Weather(response.resolvedAddress, response.alerts, response.currentConditions, response.days, response.description);
 }
 
 
-// const weather = (async () => {
-//     const response = await asyncFetchWeather('Buffalo');
-//     const weatherObj = process(response);
-//     console.log(weatherObj);
-// })();
+const getWeather = (async (location) => {
+    const response = await asyncFetchWeather(location);
+    const weatherObj = process(response);
+    console.log(weatherObj);
+});
 
 
 
