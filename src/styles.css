@@ -1,8 +1,17 @@
+
+:root{
+    --primary-color: rgb(54, 54, 231);
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     font-family: "Roboto", serif;
 }
+
+
+
 
 /**/
 
@@ -12,10 +21,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(54, 54, 231);
+    background-color: var(--primary-color);
     height: 100px;
     width: 100%;
-    padding: 0 20px; /* Adds some padding to the left and right */
+    padding: 0 20px;
 }
 
 /* HEADER CONTAINERS */
@@ -62,7 +71,7 @@ header input#input-search {
     display: grid;
     height: 100vh;
     width: 100vw;
-    grid-template-columns: 0.3fr 0.8fr;
+    grid-template-columns: 0.1fr 0.9fr;
 }
 
 #grid-item-current-conditions{
@@ -81,22 +90,33 @@ header input#input-search {
 
 
 #current-conditions{
-    display: grid;
-    grid-template-columns: 0.3fr 1fr;
-    gap: 20px;
-    
-}
-
-#conditions-description{
-    padding: 15px;
-    border: 1px solid black;
-    text-align: center;
-}
-
-#condition-details{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    padding: 15px;
+    background-color:  var(--primary-color);
+}
+
+#current-conditions img{
+    height: 5rem;
+    width: 5rem;
+}
+
+hr.dotted {
+    border-top: 3px dotted #bbb;
+    border-bottom: none;
+    width: 100%;
+    color: black;
+  }
+
+
+
+
+.bolded-text{
+    font-weight: bold;
 }
 
 
