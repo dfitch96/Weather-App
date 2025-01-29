@@ -120,7 +120,43 @@ hr.dotted {
 }
 
 
-#grid-item-week-conditions{
+#grid-item-weekly-conditions{
     
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: .25fr .25fr;
+    gap: 30px;
+    padding: 50px;
 }
+
+#grid-item-weekly-conditions .weekly-conditions-item{
+
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: rgba(44, 103, 233, 0.849);
+
+}
+
+.weekly-conditions-item > .item-header{
+    background-color: var(--primary-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    color: white;
+}
+
+.weekly-conditions-item > .item-info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.weekly-conditions-item > img{
+    height: 6rem;
+    width: 6rem;
+}
+
+
 

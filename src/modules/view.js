@@ -24,7 +24,6 @@ const icons = {
 
 const containerGrid = document.querySelector("#container-grid");
 
-
 export function displayCurrentConditions(weather){
 
     containerGrid.textContent = "";
@@ -51,16 +50,16 @@ export function displayCurrentConditions(weather){
 
 
     const conditionsIcon = document.createElement("img");
-    conditionsIcon.src = icons[weather.days[0].icon];
+    conditionsIcon.src = icons[weather.currentConditions.icon];
 
     currentConditionsBody.appendChild(conditionsIcon);
 
     const tempText = document.createElement("p");
-    tempText.textContent = `${weather.days[0].temp} °F`;
+    tempText.textContent = `${weather.currentConditions.temp} °F`;
     currentConditionsBody.appendChild(tempText);
 
     const conditionsText = document.createElement("p");
-    conditionsText.textContent = `${weather.days[0].conditions}`;
+    conditionsText.textContent = `${weather.currentConditions.conditions}`;
     currentConditionsBody.appendChild(conditionsText);
 
     const divider = document.createElement("hr");
@@ -71,12 +70,7 @@ export function displayCurrentConditions(weather){
     descriptionText.textContent = `${weather.days[0].description}`;
     currentConditionsBody.appendChild(descriptionText);
 
-
-
     gridItemCurrentConditions.appendChild(currentConditionsBody);
     containerGrid.appendChild(gridItemCurrentConditions);
-
-
-
 
 }
