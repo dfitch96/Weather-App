@@ -2,7 +2,7 @@ import "./styles.css";
 
 import {fetchWeather, asyncFetchWeather} from './modules/weatherAPI.js';
 import {Weather} from './modules/weather.js';
-import { displayCurrentConditions } from "./modules/view.js";
+import { displayCurrentConditions, displayWeeklyConditions } from "./modules/view.js";
 
 
 const form = document.querySelector("header > form");
@@ -33,6 +33,7 @@ const getWeather = (async (location) => {
     const weatherObj = process(response);
     console.log(weatherObj);
     displayCurrentConditions(weatherObj)
+    displayWeeklyConditions(weatherObj);
 
 });
 

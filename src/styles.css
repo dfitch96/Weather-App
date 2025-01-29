@@ -10,12 +10,6 @@
     font-family: "Roboto", serif;
 }
 
-
-
-
-/**/
-
-
 /* HEADER CONTAINER */
 header {
     display: flex;
@@ -71,7 +65,7 @@ header input#input-search {
     display: grid;
     height: 100vh;
     width: 100vw;
-    grid-template-columns: 0.1fr 0.9fr;
+    grid-template-columns: 0.15fr 1fr;
 }
 
 #grid-item-current-conditions{
@@ -123,16 +117,17 @@ hr.dotted {
 #grid-item-weekly-conditions{
     
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: .25fr .25fr;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
     gap: 30px;
     padding: 50px;
+    width: 100%;
+    justify-content: center;
 }
 
 #grid-item-weekly-conditions .weekly-conditions-item{
 
-    width: 200px;
-    height: 200px;
+    
     text-align: center;
     border-radius: 15px;
     background-color: rgba(44, 103, 233, 0.849);
@@ -154,8 +149,8 @@ hr.dotted {
 }
 
 .weekly-conditions-item > img{
-    height: 6rem;
-    width: 6rem;
+    height: 5rem;
+    width: 5rem;
 }
 
 

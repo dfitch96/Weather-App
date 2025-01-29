@@ -7,6 +7,7 @@ import partlyCloudyDayIcon from '../images/icons/partly-cloudy-day.png';
 import partlyCloudyNightIcon from '../images/icons/partly-cloudy-night.png';
 import clearDayIcon from '../images/icons/clear-day.png';
 import clearNightIcon from '../images/icons/clear-night.png';
+import { daysOfWeek } from './weather';
 
 
 const icons = {
@@ -72,5 +73,49 @@ export function displayCurrentConditions(weather){
 
     gridItemCurrentConditions.appendChild(currentConditionsBody);
     containerGrid.appendChild(gridItemCurrentConditions);
+
+}
+
+
+export function displayWeeklyConditions(weather){
+
+    const mainGridItemWeeklyConditions = document.createElement("div");
+    mainGridItemWeeklyConditions.setAttribute("id", "grid-item-weekly-conditions");
+
+    for(const day of weather.days){
+        const weeklyConditionsItem = document.createElement("div");
+        weeklyConditionsItem.classList.add("weekly-conditions-item");
+
+        const date = new Date(day.datetime);
+        const itemHeader = document.createElement("div");
+        itemHeader.classList.add("item-header");
+        itemHeader.textContent = daysOfWeek[date.getDay()];
+        
+        weeklyConditionsItem.appendChild(itemHeader);
+
+        const itemIcon = document.createElement("img");
+        itemIcon.src = icons[day.icon];
+        weeklyConditionsItem.appendChild(itemIcon);
+
+        const itemInfo = document.createElement("div");
+        itemInfo.classList.add("item-info");
+
+        const tempPara = document.createElement("p");
+        tempPara.textContent = `${day.temp} °F`;
+        itemInfo.appendChild(tempPara);
+
+        const conditionsPara = document.createElement("p");
+        conditionsPara.textContent = day.conditions;
+        itemInfo.appendChild(conditionsPara);
+
+        weeklyConditionsItem.appendChild(itemInfo);
+
+
+        mainGridItemWeeklyConditions.appendChild(weeklyConditionsItem);
+    }
+
+    containerGrid.appendChild(mainGridItemWeeklyConditions);
+
+
 
 }
