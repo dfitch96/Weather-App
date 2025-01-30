@@ -48,20 +48,19 @@ export function displayCurrentConditions(weather){
     const currentConditionsBody = document.createElement("div");
     currentConditionsBody.setAttribute("id", "current-conditions");
 
-
+    const descriptionText = document.createElement("p");
+    descriptionText.textContent = `${weather.days[0].description}`;
+    currentConditionsBody.appendChild(descriptionText);
 
     const conditionsIcon = document.createElement("img");
     conditionsIcon.src = icons[weather.currentConditions.icon];
-
     currentConditionsBody.appendChild(conditionsIcon);
 
     const tempText = document.createElement("p");
     tempText.textContent = `${weather.currentConditions.temp} °F`;
     currentConditionsBody.appendChild(tempText);
 
-    const descriptionText = document.createElement("p");
-    descriptionText.textContent = `${weather.days[0].description}`;
-    currentConditionsBody.appendChild(descriptionText);
+    
 
     gridItemCurrentConditions.appendChild(currentConditionsBody);
     containerGrid.appendChild(gridItemCurrentConditions);
@@ -119,6 +118,10 @@ export function displayWeeklyConditions(weather){
         const itemInfo = document.createElement("div");
         itemInfo.classList.add("item-info");
 
+        const conditionsPara = document.createElement("p");
+        conditionsPara.textContent = day.conditions;
+        itemInfo.appendChild(conditionsPara);
+
         const itemIcon = document.createElement("img");
         itemIcon.src = icons[day.icon];
         itemInfo.appendChild(itemIcon);
@@ -127,9 +130,11 @@ export function displayWeeklyConditions(weather){
         tempPara.textContent = `${day.temp} °F`;
         itemInfo.appendChild(tempPara);
 
-        const conditionsPara = document.createElement("p");
-        conditionsPara.textContent = day.conditions;
-        itemInfo.appendChild(conditionsPara);
+        
+
+       
+
+        
 
         weeklyConditionsItem.appendChild(itemInfo);
 
