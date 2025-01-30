@@ -114,12 +114,14 @@ export function displayWeeklyConditions(weather){
         
         weeklyConditionsItem.appendChild(itemHeader);
 
-        const itemIcon = document.createElement("img");
-        itemIcon.src = icons[day.icon];
-        weeklyConditionsItem.appendChild(itemIcon);
+        
 
         const itemInfo = document.createElement("div");
         itemInfo.classList.add("item-info");
+
+        const itemIcon = document.createElement("img");
+        itemIcon.src = icons[day.icon];
+        itemInfo.appendChild(itemIcon);
 
         const tempPara = document.createElement("p");
         tempPara.textContent = `${day.temp} °F`;
