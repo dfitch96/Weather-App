@@ -41,11 +41,10 @@ const getWeather = (async (location) => {
 function getHourlyConditions(weatherObj){
 
     const todaysDate = new Date();
-    console.log(todaysDate);
+    console.log(todaysDate.getHours());
     
     const day = weatherObj.days.find(day => {
         let date = new Date(day.datetime + "T00:00:00Z"); // Forces UTC interpretation
-        console.log("Parsed Date (UTC):", date.toISOString());
 
         return (
             date.getUTCFullYear() === todaysDate.getFullYear() &&
@@ -55,7 +54,18 @@ function getHourlyConditions(weatherObj){
     });
 
     console.log(day);
-    return day;
+
+    const hours = day.hours.filter(hour => {
+        const localTime = hour.datetime.split(':');
+        const localHour = parseInt(localTime[0]);
+        const currentLocalHour = todaysDate.getHours();
+        // want current hour and next 5 hours
+        return localHour >= currentLocalHour && localHour <= (currentLocalHour + 5);
+
+    })
+
+    console.log(hours);
+    return hours;
 
     
 }
