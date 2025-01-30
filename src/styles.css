@@ -67,6 +67,7 @@ header input#input-search {
     height: 100vh;
     width: 100vw;
     grid-template-columns: 0.15fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 #grid-item-current-conditions{
@@ -76,6 +77,8 @@ header input#input-search {
     gap: 20px;
     align-items: center;
     margin: 40px 20px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
 
 }
 
@@ -124,8 +127,9 @@ hr.dotted {
     grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
     gap: 30px;
     padding: 50px;
-    width: 100%;
     justify-content: center;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
 }
 
 #grid-item-weekly-conditions .weekly-conditions-item{
@@ -156,6 +160,16 @@ hr.dotted {
 .item-info > img{
     height: 5rem;
     width: 5rem;
+}
+
+
+
+#grid-item-alerts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
 }
 
 

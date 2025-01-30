@@ -6,7 +6,7 @@ const URL = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/s
 
 export async function fetchWeather(location){
 
-    fetch(`${URL}/${location}?key=${KEY}`, {mode: 'cors'})
+    fetch(`${URL}/${location}?key=${KEY}&unitGroup=us`, {mode: 'cors'})
         .then(response => {
             console.log(response);
             if (!response.ok){
@@ -28,10 +28,10 @@ export async function fetchWeather(location){
 
 
 
-export async function asyncFetchWeather(location){
+export async function asyncFetchWeather(location, units){
 
     try{
-        const response = await fetch(`${URL}/${location}?key=${KEY}`, {mode: 'cors'});
+        const response = await fetch(`${URL}/${location}?key=${KEY}&unitGroup=${units}`, {mode: 'cors'});
       
         if(!response.ok){
             console.log(`Request failed with status: ${response.status} (${response.statusText})`)

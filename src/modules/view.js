@@ -25,7 +25,16 @@ const icons = {
 
 const containerGrid = document.querySelector("#container-grid");
 
-export function displayCurrentConditions(weather){
+
+export function displayPage(weatherObj, hours, units){
+    displayCurrentConditions(weatherObj, units)
+    displayHourlyConditions(hours, units);
+    displayWeeklyConditions(weatherObj, units);
+    displayAlerts(weatherObj);
+}
+
+
+function displayCurrentConditions(weather, units){
 
     containerGrid.textContent = "";
 
@@ -57,7 +66,7 @@ export function displayCurrentConditions(weather){
     currentConditionsBody.appendChild(conditionsIcon);
 
     const tempText = document.createElement("p");
-    tempText.textContent = `${weather.currentConditions.temp} °F`;
+    tempText.textContent = `${weather.currentConditions.temp} °${units}`;
     currentConditionsBody.appendChild(tempText);
 
     
@@ -67,7 +76,7 @@ export function displayCurrentConditions(weather){
 
 }
 
-export function displayHourlyConditions(hours){
+function displayHourlyConditions(hours, units){
     const currentConditionsBody = document.querySelector("#current-conditions");
     
 
@@ -87,7 +96,7 @@ export function displayHourlyConditions(hours){
         infoDiv.appendChild(icon);
 
         const tempPara = document.createElement("p");
-        tempPara.textContent = hour.temp + '°F';
+        tempPara.textContent = `${hour.temp} °${units}`;
         infoDiv.appendChild(tempPara);
 
         currentConditionsBody.appendChild(infoDiv);
@@ -97,12 +106,20 @@ export function displayHourlyConditions(hours){
 
 }
 
-export function displayWeeklyConditions(weather){
+function displayAlerts(weather){
+    const alerts = document.createElement("div");
+    alerts.setAttribute("id", "grid-item-alerts");
+    containerGrid.appendChild(alerts);
+
+}
+
+function displayWeeklyConditions(weather, units){
 
     const mainGridItemWeeklyConditions = document.createElement("div");
     mainGridItemWeeklyConditions.setAttribute("id", "grid-item-weekly-conditions");
 
     for(const day of weather.days){
+
         const weeklyConditionsItem = document.createElement("div");
         weeklyConditionsItem.classList.add("weekly-conditions-item");
 
@@ -110,10 +127,7 @@ export function displayWeeklyConditions(weather){
         const itemHeader = document.createElement("div");
         itemHeader.classList.add("item-header");
         itemHeader.textContent = daysOfWeek[date.getUTCDay()];
-        
         weeklyConditionsItem.appendChild(itemHeader);
-
-        
 
         const itemInfo = document.createElement("div");
         itemInfo.classList.add("item-info");
@@ -127,18 +141,10 @@ export function displayWeeklyConditions(weather){
         itemInfo.appendChild(itemIcon);
 
         const tempPara = document.createElement("p");
-        tempPara.textContent = `${day.temp} °F`;
+        tempPara.textContent = `${day.temp} °${units}`;
         itemInfo.appendChild(tempPara);
 
-        
-
-       
-
-        
-
         weeklyConditionsItem.appendChild(itemInfo);
-
-
         mainGridItemWeeklyConditions.appendChild(weeklyConditionsItem);
     }
 
