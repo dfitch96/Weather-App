@@ -52,10 +52,15 @@ const App = function(){
     
 
     const getWeather = (async (location) => {
-        const response = await asyncFetchWeather(location, unitGroup[currentUnit]);
-        weatherObj = process(response);
-        let hourly = getHourlyData(weatherObj);
-        displayPage(weatherObj, hourly, currentUnit);
+        try{
+            const response = await asyncFetchWeather(location, unitGroup[currentUnit]);
+            weatherObj = process(response);
+            let hourly = getHourlyData(weatherObj);
+            displayPage(weatherObj, hourly, currentUnit);
+        } catch (e){
+            console.log(e);
+        }
+        
     
     });
 
