@@ -1,6 +1,7 @@
 
 :root{
     --primary-color: rgb(54, 54, 231);
+    --secondary-color: rgba(44, 103, 233, 0.849);
 }
 
 
@@ -89,9 +90,9 @@ header input#input-search {
     gap: 5px;
     align-items: center;
     text-align: center;
-    border: 1px solid black;
+    border-radius: 15px;
     padding: 15px;
-    background-color:  var(--primary-color);
+    background-color:  var(--secondary-color);
 }
 
 #current-conditions img{
@@ -102,6 +103,8 @@ header input#input-search {
 hr.dotted {
     border-top: 3px dotted #bbb;
     border-bottom: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 100%;
     color: black;
   }

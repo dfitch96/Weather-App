@@ -59,14 +59,6 @@ export function displayCurrentConditions(weather){
     tempText.textContent = `${weather.currentConditions.temp} °F`;
     currentConditionsBody.appendChild(tempText);
 
-    const conditionsText = document.createElement("p");
-    conditionsText.textContent = `${weather.currentConditions.conditions}`;
-    currentConditionsBody.appendChild(conditionsText);
-
-    const divider = document.createElement("hr");
-    divider.classList.add("dotted");
-    currentConditionsBody.appendChild(divider);
-
     const descriptionText = document.createElement("p");
     descriptionText.textContent = `${weather.days[0].description}`;
     currentConditionsBody.appendChild(descriptionText);
@@ -76,6 +68,35 @@ export function displayCurrentConditions(weather){
 
 }
 
+export function displayHourlyConditions(hours){
+    const currentConditionsBody = document.querySelector("#current-conditions");
+    
+
+    for(const hour of hours){
+        const divider = document.createElement("hr");
+        divider.classList.add("dotted");
+        currentConditionsBody.appendChild(divider);
+
+        const timePara = document.createElement("p");
+        timePara.textContent = hour.datetime;
+        currentConditionsBody.appendChild(timePara);
+
+        const infoDiv = document.createElement("div");
+
+        const icon = document.createElement("img");
+        icon.src = icons[hour.icon];
+        infoDiv.appendChild(icon);
+
+        const tempPara = document.createElement("p");
+        tempPara.textContent = hour.temp + '°F';
+        infoDiv.appendChild(tempPara);
+
+        currentConditionsBody.appendChild(infoDiv);
+    }
+
+
+
+}
 
 export function displayWeeklyConditions(weather){
 
@@ -86,10 +107,10 @@ export function displayWeeklyConditions(weather){
         const weeklyConditionsItem = document.createElement("div");
         weeklyConditionsItem.classList.add("weekly-conditions-item");
 
-        const date = new Date(day.datetime);
+        const date = new Date(day.datetime + "T00:00:00Z") ;
         const itemHeader = document.createElement("div");
         itemHeader.classList.add("item-header");
-        itemHeader.textContent = daysOfWeek[date.getDay()];
+        itemHeader.textContent = daysOfWeek[date.getUTCDay()];
         
         weeklyConditionsItem.appendChild(itemHeader);
 

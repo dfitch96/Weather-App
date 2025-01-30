@@ -2,7 +2,7 @@ import "./styles.css";
 
 import {fetchWeather, asyncFetchWeather} from './modules/weatherAPI.js';
 import {Weather} from './modules/weather.js';
-import { displayCurrentConditions, displayWeeklyConditions } from "./modules/view.js";
+import { displayCurrentConditions, displayWeeklyConditions, displayHourlyConditions} from "./modules/view.js";
 
 
 const form = document.querySelector("header > form");
@@ -33,16 +33,16 @@ const getWeather = (async (location) => {
     const weatherObj = process(response);
     console.log(weatherObj);
     displayCurrentConditions(weatherObj)
-    getHourlyConditions(weatherObj);
+    const hours = getHourlyData(weatherObj);
+    displayHourlyConditions(hours);
     displayWeeklyConditions(weatherObj);
 
 });
 
-function getHourlyConditions(weatherObj){
+function getHourlyData(weatherObj){
 
     const todaysDate = new Date();
-    console.log(todaysDate.getHours());
-    
+
     const day = weatherObj.days.find(day => {
         let date = new Date(day.datetime + "T00:00:00Z"); // Forces UTC interpretation
 
@@ -53,7 +53,6 @@ function getHourlyConditions(weatherObj){
         );
     });
 
-    console.log(day);
 
     const hours = day.hours.filter(hour => {
         const localTime = hour.datetime.split(':');
@@ -67,7 +66,6 @@ function getHourlyConditions(weatherObj){
     console.log(hours);
     return hours;
 
-    
 }
 
 
