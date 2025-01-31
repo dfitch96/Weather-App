@@ -22,7 +22,9 @@ A simple weather app for displaying your local weather data
    npx webpack serve
 
 Project Was Inspired by [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
+
 Background image made by [Freepik](https://www.freepik.com/)
+
 Icons made by [Visual Crossing](https://github.com/visualcrossing/WeatherIcons)
 
   
