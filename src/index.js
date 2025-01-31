@@ -92,7 +92,7 @@ const App = function(){
             const localHour = parseInt(localTime[0]);
             const currentLocalHour = parseInt(currentTime[0]) + 2;
             // want current hour and next 5 hours
-            return localHour >= currentLocalHour && localHour <= (currentLocalHour + 5);
+            return localHour >= currentLocalHour && localHour <= (currentLocalHour + 8);
     
         })
     

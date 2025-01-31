@@ -159,8 +159,8 @@ function displayWeeklyConditions(weather, units){
     mainGridItemWeeklyConditions.setAttribute("id", "grid-item-weekly-conditions");
 
     let length;
-    if(weather.days.length >= 7){
-        length = 7;
+    if(weather.days.length >= 10){
+        length = 10;
     } else{
         length = weather.days.length;
     }

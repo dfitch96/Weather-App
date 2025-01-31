@@ -70,7 +70,7 @@ header input#input-search {
     display: grid;
     height: 100vh;
     width: 100vw;
-    grid-template-columns: 0.15fr 1fr;
+    grid-template-columns: 0.2fr 1fr;
     grid-template-rows: 0.5fr 1fr;
 }
 
@@ -78,6 +78,7 @@ header input#input-search {
     
     display: flex;
     flex-direction: column;
+    
     gap: 20px;
     align-items: center;
     margin: 40px 20px;
@@ -94,12 +95,14 @@ header input#input-search {
 #current-conditions{
     display: flex;
     flex-direction: column;
+    color: white;
     gap: 5px;
     align-items: center;
     text-align: center;
     border-radius: 15px;
     padding: 15px;
     background-color:  var(--secondary-color);
+    overflow: auto;
 }
 
 #current-conditions img{
@@ -127,8 +130,8 @@ hr.dotted {
 #grid-item-weekly-conditions{
     
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    grid-template-rows: 200px;
+    grid-template-columns: repeat(7, minmax(170px, 1fr));
+    grid-template-rows: 200px 200px;
     padding: 50px;
     gap: 5px;
     justify-content: center;
@@ -208,12 +211,14 @@ hr.dotted {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    
 }
 
 
 #container-alerts li,
 #container-alerts p{
     margin: 10px;
+    color: white;
 }
 
 
