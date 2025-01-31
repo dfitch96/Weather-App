@@ -11,6 +11,10 @@
     font-family: "Roboto", serif;
 }
 
+body{
+    background-image: url("./images/backgrounds/277695-P670SL-1.jpg");
+}
+
 /* HEADER CONTAINER */
 header {
     display: flex;
@@ -124,7 +128,7 @@ hr.dotted {
     
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    grid-template-rows: 170px;
+    grid-template-rows: 200px;
     padding: 50px;
     gap: 5px;
     justify-content: center;
@@ -134,12 +138,23 @@ hr.dotted {
 
 #grid-item-weekly-conditions .weekly-conditions-item{
 
-    
     text-align: center;
     border-radius: 15px;
     background-color: rgba(44, 103, 233, 0.849);
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
 }
+
+#grid-item-weekly-conditions .weekly-conditions-item:hover{
+    background-color: rgba(80, 128, 233, 0.9);
+    transform: scale(1.05);
+    box-shadow: 0 0 2px rgba(80, 128, 233, 1);
+}
+
+
 
 .weekly-conditions-item > .item-header{
     background-color: var(--primary-color);
