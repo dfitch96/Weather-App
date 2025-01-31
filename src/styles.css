@@ -2,6 +2,8 @@
 :root{
     --primary-color: rgb(54, 54, 231);
     --secondary-color: rgba(44, 103, 233, 0.849);
+    --primary-font: rgb(255, 255, 255);
+    --alert-font: rgb(255, 0, 0);
 }
 
 
@@ -35,7 +37,7 @@ header > div#container-button
 
 header > h1{
     font-weight: lighter;
-    color: white;
+    color: var(--primary-font);
 }
 
 header > form{
@@ -95,13 +97,14 @@ header input#input-search {
 #current-conditions{
     display: flex;
     flex-direction: column;
-    color: white;
+    color: var(--primary-font);
     gap: 5px;
+    min-width: 200px;
     align-items: center;
     text-align: center;
     border-radius: 15px;
     padding: 15px;
-    background-color:  var(--secondary-color);
+    background-color: var(--secondary-color);
     overflow: auto;
 }
 
@@ -130,7 +133,7 @@ hr.dotted {
 #grid-item-weekly-conditions{
     
     display: grid;
-    grid-template-columns: repeat(7, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-template-rows: 200px 200px;
     padding: 50px;
     gap: 5px;
@@ -145,7 +148,7 @@ hr.dotted {
     border-radius: 15px;
     background-color: rgba(44, 103, 233, 0.849);
     cursor: pointer;
-    color: white;
+    color: var(--primary-font);
     transition: all 0.3s ease-in-out;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
@@ -164,7 +167,7 @@ hr.dotted {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     width: 100%;
-    color: white;
+    color: var(--primary-font);
 }
 
 .weekly-conditions-item > .item-info{
@@ -191,7 +194,7 @@ hr.dotted {
 
 #grid-item-alerts > h1{
     margin-left: 50px;
-    color: red;
+    color: var(--alert-font);
 }
 
 #container-alerts{
@@ -218,12 +221,12 @@ hr.dotted {
 #container-alerts li,
 #container-alerts p{
     margin: 10px;
-    color: white;
+    color: var(--primary-font);
 }
 
 
 .alert-text{
-    color: red;
+    color: var(--alert-font);
 }
 
 
