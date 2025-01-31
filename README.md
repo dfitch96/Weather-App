@@ -2,8 +2,9 @@
 
 A simple weather app for displaying your local weather data
 
-- Uses the Visual Crossing API to retrieve weather data
-- Uses Geocodify to convert latitude and longitude coordinates to an address
+- Retrieves the user's location using the Geolocation API
+- Fetches weather data for a given location through the Visual Crossing API
+- Converts latitude and longitude coordinates into a readable address with the Geocodify API
 
 ## Live Preview
 
