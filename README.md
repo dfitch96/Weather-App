@@ -2,8 +2,8 @@
 
 A simple weather app for displaying your local weather data
 
-    - Uses the Visual Crossing API to retrieve weather data
-    - Uses Geocodify to convert latitude and longitude coordinates to an address
+- Uses the Visual Crossing API to retrieve weather data
+- Uses Geocodify to convert latitude and longitude coordinates to an address
 
 ## Live Preview
 
@@ -20,6 +20,8 @@ A simple weather app for displaying your local weather data
 3. Start the App
    ```bash
    npx webpack serve
+
+## This Project Was Inspirted by [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
 
   
    
