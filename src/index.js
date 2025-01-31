@@ -1,6 +1,6 @@
 import "./styles.css";
 
-import {fetchWeather, asyncFetchWeather} from './modules/weatherAPI.js';
+import {fetchWeather, asyncFetchWeather, fetchLocation} from './modules/weatherAPI.js';
 import {Weather} from './modules/weather.js';
 import {displayPage} from "./modules/view.js";
 
@@ -24,10 +24,10 @@ const App = function(){
 
     window.addEventListener("load", () => {
         if("geolocation" in navigator){
-            console.log("Geolocation available");
-            navigator.geolocation.getCurrentPosition((position) => {
-                console.log(position);
-                getWeather(`${position.coords.latitude},${position.coords.longitude}`)
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                fetchLocation(position.coords.latitude, position.coords.longitude)
+                .then(location => getWeather(location))
+                .catch(err => console.log(err));
             })
         } else {
             console.log("Geolocation not available");
@@ -90,7 +90,7 @@ const App = function(){
         const hours = day.hours.filter(hour => {
             const localTime = hour.datetime.split(':');
             const localHour = parseInt(localTime[0]);
-            const currentLocalHour = parseInt(currentTime[0]);
+            const currentLocalHour = parseInt(currentTime[0]) + 2;
             // want current hour and next 5 hours
             return localHour >= currentLocalHour && localHour <= (currentLocalHour + 5);
     
