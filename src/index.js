@@ -71,23 +71,13 @@ const App = function(){
 
     function getHourlyData(weatherObj){
     
-        const todaysDate = new Date();
-    
-        const day = weatherObj.days.find(day => {
-            let date = new Date(day.datetime + "T00:00:00Z"); // Forces UTC interpretation
-    
-            return (
-                date.getUTCFullYear() === todaysDate.getFullYear() &&
-                date.getUTCMonth() === todaysDate.getMonth() &&
-                date.getUTCDate() === todaysDate.getDate()
-            );
-        });
-    
+        let day = weatherObj.days[0];
+        let currentTime = weatherObj.currentConditions.datetime.split(':');
     
         const hours = day.hours.filter(hour => {
             const localTime = hour.datetime.split(':');
             const localHour = parseInt(localTime[0]);
-            const currentLocalHour = todaysDate.getHours();
+            const currentLocalHour = parseInt(currentTime[0]);
             // want current hour and next 5 hours
             return localHour >= currentLocalHour && localHour <= (currentLocalHour + 5);
     
