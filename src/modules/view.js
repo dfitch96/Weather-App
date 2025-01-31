@@ -109,6 +109,46 @@ function displayHourlyConditions(hours, units){
 function displayAlerts(weather){
     const alerts = document.createElement("div");
     alerts.setAttribute("id", "grid-item-alerts");
+
+    const header = document.createElement("h1");
+    header.textContent = "Weather Alerts!"
+    alerts.appendChild(header);
+
+    const alertsContainer = document.createElement("div");
+    alertsContainer.setAttribute("id", "container-alerts");
+    
+    
+    if (weather.alerts.length !== 0){
+
+        const list = document.createElement("ul");
+        for(const alert of weather.alerts){
+            console.log(`${alert.event}: ${alert.headline}`);
+
+            const listItem = document.createElement("li");
+            const alertText = document.createElement("span");
+            alertText.classList.add("alert-text");
+            alertText.textContent = `${alert.event}: `;
+            
+            const headlineText = document.createElement("span");
+            headlineText.textContent = `${alert.headline}`;
+            
+            listItem.appendChild(alertText);
+            listItem.appendChild(headlineText);
+            list.appendChild(listItem);
+        }
+        alertsContainer.appendChild(list);
+
+    } else{
+
+        const emptyAlertsHeader = document.createElement('p');
+        emptyAlertsHeader.textContent = "No weather alerts found"
+        alertsContainer.appendChild(emptyAlertsHeader);
+
+    }
+    
+
+    
+    alerts.appendChild(alertsContainer);
     containerGrid.appendChild(alerts);
 
 }
@@ -118,7 +158,15 @@ function displayWeeklyConditions(weather, units){
     const mainGridItemWeeklyConditions = document.createElement("div");
     mainGridItemWeeklyConditions.setAttribute("id", "grid-item-weekly-conditions");
 
-    for(const day of weather.days){
+    let length;
+    if(weather.days.length >= 7){
+        length = 7;
+    } else{
+        length = weather.days.length;
+    }
+
+    for(let i = 0; i < length; i++){
+        const day = weather.days[i];
 
         const weeklyConditionsItem = document.createElement("div");
         weeklyConditionsItem.classList.add("weekly-conditions-item");
