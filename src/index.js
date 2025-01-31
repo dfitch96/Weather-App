@@ -8,6 +8,7 @@ import {displayPage} from "./modules/view.js";
 
 
 
+
 const App = function(){
     
     let weatherObj;
@@ -16,12 +17,24 @@ const App = function(){
         C: "metric"
     }
     let currentUnit = "F"
-
-
+   
     const form = document.querySelector("header > form");
     const search = form.querySelector("input#input-search");
     const toggleUnit = document.querySelector("#toggle-unit");
 
+    window.addEventListener("load", () => {
+        if("geolocation" in navigator){
+            console.log("Geolocation available");
+            navigator.geolocation.getCurrentPosition((position) => {
+                console.log(position);
+                getWeather(`${position.coords.latitude},${position.coords.longitude}`)
+            })
+        } else {
+            console.log("Geolocation not available");
+        }
+    })
+
+  
     document.addEventListener("keydown", (event) => {
         if(event.key === 'Enter'){
             
@@ -90,12 +103,6 @@ const App = function(){
     
 
 }();
-
-
-
-
-
-
 
 
 
