@@ -20,6 +20,8 @@ A simple weather app for displaying your local weather data
 3. Start the App
    ```bash
    npx webpack serve
+   
+## Acknowledgments
 
 Project Was Inspired by [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
 
