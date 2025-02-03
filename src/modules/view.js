@@ -130,7 +130,7 @@ function displayAlerts(weather){
             alertText.textContent = `${alert.event}: `;
             
             const headlineText = document.createElement("span");
-            headlineText.textContent = `${alert.headline}`;
+            headlineText.textContent = `${alert.description}`;
             
             listItem.appendChild(alertText);
             listItem.appendChild(headlineText);
